@@ -18,4 +18,6 @@
     yarn add mongoose 
 9. Connect to local MongoDb, if localhost doesn't work in .env file, try to replace localhost to 0.0.0.0
 
+10. Push to github
+    Ctrl + Shift + P, then Publish to GitHub 
 
