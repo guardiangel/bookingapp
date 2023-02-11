@@ -21,3 +21,6 @@
 10. Push to github
     Ctrl + Shift + P, then Publish to GitHub 
 
+
+20220210 
+1. Add route and Model
