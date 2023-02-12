@@ -1,74 +1,27 @@
 import express from "express";
-import Hotel from "../models/Hotel.js";
-import { createError } from "../utils/error.js";
+
+import {
+  createHotel,
+  updateHotel,
+  deleteHotel,
+  getHotel,
+  getAllHotel,
+} from "../controllers/hotelController.js";
 
 const router = express.Router();
 
 //create, "/:id?limit=5"
-router.post("/", async (req, resp) => {
-  const newHotel = new Hotel(req.body);
-
-  try {
-    const saveHotel = await newHotel.save();
-    resp.status(200).json(saveHotel);
-  } catch (error) {
-    resp.status(500).json(error);
-  }
-});
+router.post("/", createHotel);
 
 //update
-router.put("/:id", async (req, resp) => {
-  try {
-    //Hotel.findByIdAndUpdate will return the one before updating.
-    //need to use {new:true} if we want to return the updated one.
-    const updateHotel = await Hotel.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: req.body,
-      },
-      { new: true }
-    );
-
-    resp.status(200).json(updateHotel);
-  } catch (error) {
-    resp.status(500).json(error);
-  }
-});
+router.put("/:id", updateHotel);
 
 //delete
-router.delete("/:id", async (req, resp) => {
-  try {
-    await Hotel.findByIdAndDelete(req.params.id);
-    resp.status(200).json("Hotel has been deleted");
-  } catch (error) {
-    resp.status(500).json(error);
-  }
-});
+router.delete("/:id", deleteHotel);
 
 //get
-router.get("/:id", async (req, resp, next) => {
-  const failed = true;
-
-  if (failed) {
-    return next(createError(401, "Sorry, you are not authenticated"));
-  }
-
-  try {
-    const hotel = await Hotel.findById(req.params.id);
-    resp.status(200).json(hotel);
-  } catch (error) {
-    next(error);
-  }
-});
+router.get("/:id", getHotel);
 //get all
-router.get("/", async (req, resp, next) => {
-  try {
-    const hotels = await Hotel.find();
+router.get("/", getAllHotel);
 
-    resp.status(200).json(hotels);
-  } catch (error) {
-    //resp.status(500).json(error);
-    next(error);
-  }
-});
 export default router;
