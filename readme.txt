@@ -22,5 +22,8 @@
     Ctrl + Shift + P, then Publish to GitHub 
 
 
-20220210 
+20230210 
 1. Add route and Model
+
+20230212
+1. Encrypt the password
