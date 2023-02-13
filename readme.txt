@@ -27,3 +27,9 @@
 
 20230212
 1. Encrypt the password
+2. Use Jwt token in authController.js 
+        yarn add jsonwebtoken
+        yarn add cookie-parser
+    2.1 Install openssl for windows and add path to system path variable.
+    2.2 Execute 
+        openssl rand -base64 32
