@@ -16,8 +16,8 @@ export const verifyToken = (req, resp, next) => {
 };
 
 export const verifyUser = (req, resp, next) => {
-  //don't need next, otherwise it will enter verifyToken again.
-  verifyToken(req, resp, () => {
+  //don't need next when test demo /checkUser in the users.js, otherwise it will enter verifyToken again.
+  verifyToken(req, resp, next, () => {
     if (req.user.id === req.params.id || req.user.isAdmin) {
       next();
     } else {
@@ -26,8 +26,7 @@ export const verifyUser = (req, resp, next) => {
   });
 };
 export const verifyAdmin = (req, resp, next) => {
-  //don't need next, otherwise it will enter verifyToken again.
-  verifyToken(req, resp, () => {
+  verifyToken(req, resp, next, () => {
     if (req.user.isAdmin) {
       next();
     } else {
