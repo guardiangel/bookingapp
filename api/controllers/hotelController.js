@@ -39,12 +39,6 @@ export const deleteHotel = async (req, resp, next) => {
   }
 };
 export const getHotel = async (req, resp, next) => {
-  const failed = true;
-
-  if (failed) {
-    return next(createError(401, "Sorry, you are not authenticated"));
-  }
-
   try {
     const hotel = await Hotel.findById(req.params.id);
     resp.status(200).json(hotel);
