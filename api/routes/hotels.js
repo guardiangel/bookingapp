@@ -7,6 +7,7 @@ import {
   getHotel,
   getAllHotel,
   countByCity,
+  countByType,
 } from "../controllers/hotelController.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 
@@ -29,6 +30,6 @@ router.get("/", getAllHotel);
 //to resoleve the above issue, add /find in get route
 //router.get("/find/:id", getHotel);
 router.get("/countByCity", countByCity);
-router.get("/countByType", getAllHotel);
+router.get("/countByType", countByType);
 
 export default router;
