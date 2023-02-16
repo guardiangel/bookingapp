@@ -1,3 +1,12 @@
+How to start the forent-end server and back-end server.
+1.Install Mongodb and start it.
+2.bookingapp>yarn start
+3.bookingapp\client>yarn start
+
+
+
+
+
 20230209:
 1.Init the project 
     npm install -g create-react-app
@@ -33,3 +42,11 @@
     2.1 Install openssl for windows and add path to system path variable.
     2.2 Execute 
         openssl rand -base64 32
+
+20230214 Add Client
+    cd client 
+    git clone --single-branch -b "react-booking-ui" https://github.com/safak/youtube2022.git .
+
+20230215 Add axios
+    cd client
+    yarn add axios

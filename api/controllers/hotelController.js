@@ -56,3 +56,21 @@ export const getAllHotel = async (req, resp, next) => {
     next(error);
   }
 };
+
+export const countByCity = async (req, resp, next) => {
+  const cities = req.query.cities.split(",");
+
+  try {
+    const list = await Promise.all(
+      cities.map((city) => {
+        // return Hotel.find({ city: city }).lenth;
+        return Hotel.countDocuments({ city: city });
+      })
+    );
+
+    resp.status(200).json(list);
+  } catch (error) {
+    //resp.status(500).json(error);
+    next(error);
+  }
+};
