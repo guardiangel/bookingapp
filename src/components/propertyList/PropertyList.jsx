@@ -23,10 +23,11 @@ const PropertyList = () => {
               <div className="pListItem" key={i}>
                 <img src={imageArray[i]} alt="" className="pListImg" />
                 <div className="pListTitles">
-                  <h1>{obj.type}</h1>
+                  <h1>{obj?.type}</h1>
                   <h2>
-                    {obj.count}
-                    {obj.type}
+                    {/** use question marks just in case obj is null */}
+                    {obj?.count}
+                    {obj?.type}
                   </h2>
                 </div>
               </div>
