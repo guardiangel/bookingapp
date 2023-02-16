@@ -6,6 +6,7 @@ import roomsRoute from "./routes/rooms.js";
 import hotelsRoute from "./routes/hotels.js";
 import usersRoute from "./routes/users.js";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const app = express();
 
@@ -35,6 +36,7 @@ mongoose.connection.on("connected", () => {
 
 //middlewares
 
+app.use(cors());
 app.use(cookieParser());
 
 //receive json format as request body, otherwise an error will be thrown when saving.
