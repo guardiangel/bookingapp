@@ -9,7 +9,7 @@ const Login = () => {
     password: undefined,
   });
 
-  const { user, loading, error, dispatch } = useContext(AuthContext);
+  const { loading, error, dispatch } = useContext(AuthContext);
 
   //redirect to another page after successfully login
   const navigate = useNavigate();
