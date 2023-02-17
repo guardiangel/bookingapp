@@ -1,0 +1,426 @@
+{
+	"info": {
+		"_postman_id": "8a415d82-82fe-4abd-984b-528bd1deacac",
+		"name": "bookingapp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19509616"
+	},
+	"item": [
+		{
+			"name": "Init request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Hotel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Hotel berlin3\",\r\n    \"type\":\"hotel\",\r\n    \"city\":\"berlin\",\r\n    \"address\":\"unit 725 18 uptown drive\",\r\n    \"distance\":\"500\",\r\n    \"title\":\"Best Hotel in the area\",\r\n    \"desc\":\"hotel description\",\r\n    \"cheapestPrice\":100,\r\n    \"featured\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/hotels/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Hotel",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Hotel Felix Updated\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/hotels/63e84bafeac0659164d15c77",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels",
+						"63e84bafeac0659164d15c77"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/hotels/63e6f6ac2b58c02f1dc0e4aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels",
+						"63e6f6ac2b58c02f1dc0e4aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Hotels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/hotels?featured=true&limit=8&min=99&max=501",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "featured",
+							"value": "true"
+						},
+						{
+							"key": "limit",
+							"value": "8"
+						},
+						{
+							"key": "min",
+							"value": "99"
+						},
+						{
+							"key": "max",
+							"value": "501"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Hotel",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/hotels/63e6f6ac2b58c02f1dc0e4aa",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels",
+						"63e6f6ac2b58c02f1dc0e4aa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"tom\",\r\n    \"email\":\"tom1@gmail.com\",\r\n    \"password\":\"tom\",\r\n    \"isAdmin\":false\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"tom\",\r\n    \"password\":\"tom\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"tomUpdate\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/users/63e9a7bbb82a706323c8a176",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"users",
+						"63e9a7bbb82a706323c8a176"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/users/checkAuthentication",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"users",
+						"checkAuthentication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/users/checkUser/63e9a7bbb82a706323c8a176",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"users",
+						"checkUser",
+						"63e9a7bbb82a706323c8a176"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Admin",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/users/checkAdmin/63e9a7bbb82a706323c8a176",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"users",
+						"checkAdmin",
+						"63e9a7bbb82a706323c8a176"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Room",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"Queen room\",\r\n    \"desc\":\"Queen size bed, one bathroom, 2 parking lots\",\r\n    \"price\":80,\r\n    \"maxPeople\":2,\r\n    \"roomNumbers\":[{\"number\":202}, {\"number\":303}]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/rooms/63e6fb271bee5ea0e556bc27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"rooms",
+						"63e6fb271bee5ea0e556bc27"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Room",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/rooms/63ec55c2f1867b93674243f7/63e6fb271bee5ea0e556bc27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"rooms",
+						"63ec55c2f1867b93674243f7",
+						"63e6fb271bee5ea0e556bc27"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get  countByCity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/hotels/countByCity?cities=berlin,madrid,london",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels",
+						"countByCity"
+					],
+					"query": [
+						{
+							"key": "cities",
+							"value": "berlin,madrid,london"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get countByType",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/hotels/countByType",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels",
+						"countByType"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
