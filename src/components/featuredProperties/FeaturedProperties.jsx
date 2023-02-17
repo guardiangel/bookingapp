@@ -5,10 +5,6 @@ const FeaturedProperties = () => {
   const { data, loading, error } = useFetch(
     "/hotels?featured=true&limit=8&min=99&max=501"
   );
-
-  console.log(data);
-  console.log(loading);
-
   return (
     <div className="fp">
       {loading ? (
