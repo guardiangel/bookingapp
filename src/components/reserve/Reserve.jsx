@@ -4,10 +4,7 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import useFetch from "../../hooks/useFetch.js";
 
 const Reserve = ({ setOpen, hotelId }) => {
-  console.log(hotelId);
   const { data, loading, error } = useFetch(`/hotels/room/${hotelId}`);
-
-  console.log(data);
 
   return (
     <div className="reserve">
@@ -19,7 +16,7 @@ const Reserve = ({ setOpen, hotelId }) => {
         />
         <span>Select your rooms:</span>
         {data.map((item) => (
-          <div className="rItem">
+          <div className="rItem" key={item._id}>
             <div className="rItemInfo">
               <div className="rTitle">{item.title}</div>
               <div className="rTitle">{item.desc}</div>
