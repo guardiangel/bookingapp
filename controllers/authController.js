@@ -44,7 +44,7 @@ export const login = async (req, resp, next) => {
     resp
       .cookie("access_token", token, { httpOnly: true })
       .status(200)
-      .json({ ...others });
+      .json({ details: { ...others }, isAdmin });
   } catch (error) {
     next(error);
   }

@@ -93,7 +93,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8888/api/hotels/63e6f6ac2b58c02f1dc0e4aa",
+					"raw": "http://localhost:8888/api/hotels/find/63ed9df2a46f125a03900ebc",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -102,7 +102,8 @@
 					"path": [
 						"api",
 						"hotels",
-						"63e6f6ac2b58c02f1dc0e4aa"
+						"find",
+						"63ed9df2a46f125a03900ebc"
 					]
 				}
 			},
@@ -114,7 +115,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8888/api/hotels?featured=true&limit=8&min=99&max=501",
+					"raw": "http://localhost:8888/api/hotels?city=madrid&limit=8&min=1&max=9999",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -126,8 +127,8 @@
 					],
 					"query": [
 						{
-							"key": "featured",
-							"value": "true"
+							"key": "city",
+							"value": "madrid"
 						},
 						{
 							"key": "limit",
@@ -135,11 +136,11 @@
 						},
 						{
 							"key": "min",
-							"value": "99"
+							"value": "1"
 						},
 						{
 							"key": "max",
-							"value": "501"
+							"value": "9999"
 						}
 					]
 				}
@@ -329,7 +330,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"title\":\"Queen room\",\r\n    \"desc\":\"Queen size bed, one bathroom, 2 parking lots\",\r\n    \"price\":80,\r\n    \"maxPeople\":2,\r\n    \"roomNumbers\":[{\"number\":202}, {\"number\":303}]\r\n\r\n}",
+					"raw": "{\r\n    \"title\":\"Queen room in madrid\",\r\n    \"desc\":\"Queen size bed, one bathroom, 2 parking lots\",\r\n    \"price\":80,\r\n    \"maxPeople\":2,\r\n    \"roomNumbers\":[{\"number\":202}, {\"number\":303}]\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -337,7 +338,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8888/api/rooms/63e6fb271bee5ea0e556bc27",
+					"raw": "http://localhost:8888/api/rooms/63ed9df2a46f125a03900ebc",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -346,7 +347,7 @@
 					"path": [
 						"api",
 						"rooms",
-						"63e6fb271bee5ea0e556bc27"
+						"63ed9df2a46f125a03900ebc"
 					]
 				}
 			},
@@ -417,6 +418,59 @@
 						"api",
 						"hotels",
 						"countByType"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotel Rooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/api/hotels/room/63e6fb271bee5ea0e556bc27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"hotels",
+						"room",
+						"63e6fb271bee5ea0e556bc27"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddDateForRoom",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"dates\":[\"2023-02-15T03:52:40.230Z\",\"2023-02-15T03:52:40.230Z\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/api/rooms/availability/63ec5708f1867b93674243fe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"api",
+						"rooms",
+						"availability",
+						"63ec5708f1867b93674243fe"
 					]
 				}
 			},
