@@ -1,14 +1,29 @@
 import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { userColumns } from "../../datatablesource";
+import { Link, useLocation } from "react-router-dom";
+import useFetch from "../../hooks/useFetch.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Datatable = () => {
-  const [data, setData] = useState(userRows);
+  const location = useLocation();
+  const path = location.pathname.split("/")[1];
+  const { data, loading, error } = useFetch(`/${path}`);
 
-  const handleDelete = (id) => {
-    setData(data.filter((item) => item.id !== id));
+  //In sample video, there is no need to include data in below statement, however, it doesn't work here.
+  //Must init the list when loading page
+  const [list, setList] = useState(data);
+
+  useEffect(() => {
+    setList(data);
+  }, [data]);
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`/${path}/${id}`);
+      setList(data.filter((item) => item._id !== id));
+    } catch (error) {}
   };
 
   const actionColumn = [
@@ -24,7 +39,7 @@ const Datatable = () => {
             </Link>
             <div
               className="deleteButton"
-              onClick={() => handleDelete(params.row.id)}
+              onClick={() => handleDelete(params.row._id)}
             >
               Delete
             </div>
@@ -33,6 +48,7 @@ const Datatable = () => {
       },
     },
   ];
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
@@ -43,11 +59,12 @@ const Datatable = () => {
       </div>
       <DataGrid
         className="datagrid"
-        rows={data}
+        rows={list}
         columns={userColumns.concat(actionColumn)}
         pageSize={9}
         rowsPerPageOptions={[9]}
         checkboxSelection
+        getRowId={(row) => row._id}
       />
     </div>
   );
