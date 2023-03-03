@@ -3,6 +3,8 @@ import Login from "./pages/login/Login";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
+import NewHotel from "./pages/newHotel/NewHotel";
+import NewRoom from "./pages/newRoom/NewRoom";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { hotelInputs, roomInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
@@ -68,10 +70,7 @@ function App() {
                 }
               />
               <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={hotelInputs} title="Add New Hotel" />}
-              />
+              <Route path="new" element={<NewHotel />} />
             </Route>
 
             <Route path="rooms">
@@ -84,10 +83,7 @@ function App() {
                 }
               />
               <Route path=":productId" element={<Single />} />
-              <Route
-                path="new"
-                element={<New inputs={roomInputs} title="Add new room" />}
-              />
+              <Route path="new" element={<NewRoom />} />
             </Route>
           </Route>
         </Routes>
